@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>完美体育 · 知识库入口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fcfcfc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.7;
+      color: #1e2a3a;
+      padding: 2.5rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-wrapper {
+      max-width: 760px;
+      width: 100%;
+    }
+
+    /* 标题层级 — 极简留白 */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+      color: #0b1c2c;
+      line-height: 1.25;
+    }
+
+    .subhead {
+      font-size: 1.05rem;
+      color: #5d6e7e;
+      margin-bottom: 2.8rem;
+      font-weight: 400;
+      border-left: 3px solid #d0dae6;
+      padding-left: 1rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin: 2.5rem 0 1rem 0;
+      color: #1b2b3c;
+      letter-spacing: 0.01em;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid #e6edf2;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 1.8rem 0 0.5rem 0;
+      color: #2b3f53;
+    }
+
+    /* 正文 & 卡片 */
+    p {
+      margin-bottom: 1.2rem;
+      color: #2d4055;
+      font-size: 0.98rem;
+    }
+
+    a {
+      color: #1d5b8c;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+
+    a:hover, a:focus {
+      color: #0a3a5c;
+      border-bottom-color: #1d5b8c;
+    }
+
+    /* 卡片元素 — 干净目录感 */
+    .section-card {
+      background-color: #ffffff;
+      border-radius: 14px;
+      padding: 1.5rem 1.8rem;
+      margin: 2rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 4px 12px rgba(0,0,0,0.02);
+      border: 1px solid #eef4f8;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .card-item {
+      background-color: #f6f9fc;
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      transition: background-color 0.2s ease;
+      border-left: 3px solid #b7ccdd;
+    }
+
+    .card-item strong {
+      font-weight: 500;
+      color: #1b2b3c;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .card-item span {
+      font-size: 0.88rem;
+      color: #4a6072;
+    }
+
+    .card-item:hover {
+      background-color: #edf3f9;
+    }
+
+    /* 提示 / 说明 区域 */
+    .notice-box {
+      background: #f2f6fb;
+      border-radius: 12px;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0;
+      border-left: 4px solid #8faec9;
+    }
+
+    .notice-box p {
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .notice-box .label {
+      font-weight: 500;
+      color: #25415c;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    /* 相关信息区 (faq 摘要风格) */
+    .faq-item {
+      padding: 0.7rem 0;
+      border-bottom: 1px dashed #e0e9f0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #1a2c40;
+    }
+
+    .faq-a {
+      color: #3b5369;
+      font-size: 0.93rem;
+      margin-top: 0.15rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2eaf0;
+      margin: 2.2rem 0;
+    }
+
+    /* 响应式 */
+    @media (max-width: 500px) {
+      body {
+        padding: 1.5rem 0.8rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .section-card {
+        padding: 1rem 1.2rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* 点缀 —— 极简分割 */
+    .meta-note {
+      font-size: 0.82rem;
+      color: #6d8399;
+      margin-top: 2.8rem;
+      text-align: center;
+      border-top: 1px solid #e4ecf3;
+      padding-top: 1.8rem;
+    }
+
+    .inline-link-highlight {
+      background: #eef4fa;
+      padding: 0.05rem 0.2rem;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <h1>完美体育 · 知识库入口</h1>
+  <div class="subhead">稳定界面 · 信息说明 · 常见指引</div>
+
+  <!-- hero 简述 -->
+  <p>
+    这里是一份围绕 <a href="https://portal-wanmeisport.com">完美体育</a> 整理的轻量知识页面。  
+    与直接访问服务不同，本页更像一个说明书架——把常用介绍、功能特点、注意事项和常见问题摘要放在一起，方便快速了解全貌。  
+    所有内容都基于公开信息与平台自身说明，不做夸大延伸。
+  </p>
+
+  <!-- 目录感 卡片区：特点 -->
+  <div class="section-card">
+    <h2 style="border-bottom: none; margin-top: 0;">功能特点一览</h2>
+    <div class="card-grid">
+      <div class="card-item">
+        <strong>界面简洁</strong>
+        <span>信息层级清晰，核心操作路径直观</span>
+      </div>
+      <div class="card-item">
+        <strong>内容模块化</strong>
+        <span>不同版块分区明确，便于定位</span>
+      </div>
+      <div class="card-item">
+        <strong>持续更新</strong>
+        <span>页面结构与数据保持例行维护</span>
+      </div>
+      <div class="card-item">
+        <strong>通用适配</strong>
+        <span>支持主流设备及浏览器访问</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 说明区：稳定入口 -->
+  <h2>关于入口与稳定性</h2>
+  <p>
+    使用 <a href="https://portal-wanmeisport.com">完美体育</a> 时，建议将此地址保存在浏览器书签或收藏夹中。  
+    该入口指向平台的主门户，日常维护和内容同步均通过此域名进行。  
+    如果你遇到页面加载异常或提示更新，可以先检查本地网络环境，或稍后重试。大部分临时波动可在短时间内恢复。
+  </p>
+  <div class="notice-box">
+    <span class="label">📌 说明</span>
+    <p>官方不会通过非正规渠道要求用户提供敏感信息。任何涉及密码、验证码的异常索取都应警惕。请始终认准上述链接中的域名拼写。</p>
+  </div>
+
+  <!-- 提示区 -->
+  <h2>使用提示</h2>
+  <p>
+    首次浏览时，建议先花几分钟翻阅各个主栏目，对布局建立基本印象。  
+    部分交互操作（如搜索、筛选）可能需要浏览器启用 JavaScript，请保持默认设置开启。  
+    若希望获得更快的加载体验，可以定期清理浏览器缓存。
+  </p>
+  <p>
+    另外，在移动设备上访问 <a href="https://portal-wanmeisport.com">完美体育</a> 时，页面会自动适配竖屏与横屏布局。  
+    如果显示异常，可尝试刷新或旋转屏幕。
+  </p>
+
+  <!-- 相关信息区：FAQ 摘要 -->
+  <h2>常见疑问摘要</h2>
+  <div class="section-card" style="padding-bottom: 0.5rem;">
+    <div class="faq-item">
+      <div class="faq-q">‣ 如何确认我访问的是正确页面？</div>
+      <div class="faq-a">核对浏览器地址栏域名是否为 portal-wanmeisport.com ，并查看页面底部是否有版权或版本标识。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">‣ 页面加载缓慢是什么原因？</div>
+      <div class="faq-a">多数情况与本地网络或 CDN 节点有关。可尝试切换 Wi-Fi / 移动数据，或使用其他设备对比。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">‣ 是否需要注册或登录才能浏览全部内容？</div>
+      <div class="faq-a">部分基础信息对所有访客开放，个别个性化功能可能需要账号。具体以页面实际提示为准。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">‣ 如果遇到显示错乱怎么办？</div>
+      <div class="faq-a">建议先清除当前站点缓存，或使用无痕模式重新加载。问题持续存在可联系平台技术支持。</div>
+    </div>
+  </div>
+
+  <!-- 附加：一句话收束 -->
+  <hr>
+  <p style="font-size: 0.95rem; color: #3b5369;">
+    本页仅为信息汇总与指引，不替代 <a href="https://portal-wanmeisport.com">完美体育</a> 本身的完整服务。  
+    如需深入了解各项功能，直接访问官方页面是最可靠的方式。
+  </p>
+
+  <div class="meta-note">
+    · 知识库入口 · 稳定为先 ·
+  </div>
+
+</div>
+</body>
+</html>
